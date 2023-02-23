@@ -1,0 +1,54 @@
+<%- include('layout/header') %>
+<div class="container">
+  <div class="d-flex justify-content-center py-5">
+    <form class="shadow p-3" action="/update/<%= user._id %>" method="post" enctype="multipart/form-data" id="edit-form">
+      <div class="row">
+        <div class="col-12 mb-2">
+          <div class="text-center rounded">
+            <h5 class="font-bold">Edit User (<%= user.name %>)</h5>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group mb-3">
+            <label class="mb-1" for="name">Name</label>
+            <input type="text" value="<%= user.name %>" name="name" class="form-control" id="name" aria-describedby="name" placeholder="Enter name" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group mb-3">
+            <label class="mb-1" for="email">Email</label>
+            <input type="email" value="<%= user.email %>" name="email" class="form-control" id="email" aria-describedby="name" placeholder="Enter email" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group mb-3">
+            <label class="mb-1" for="phone">Phone</label>
+            <input type="tel" value="<%= user.phone %>" name="phone" class="form-control" id="phone" aria-describedby="phone" placeholder="Enter phone" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group mb-3">
+            <label class="mb-1" for="image">Select Image</label>
+            <input type="file" class="form-control" name="image" id="image" aria-describedby="image" />
+          </div>
+          <img src="/<%= user.image %>" alt="image" width="100" class="img-thumbnail mt-1" />
+          <input type="hidden" value="<%= user.image %>" name="old_image" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-success w-100">Update</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include('layout/footer') %>
